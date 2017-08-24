@@ -4,8 +4,10 @@
   "description": "A simple weather web application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node_modules/.bin/webpack-dev-server"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "Dylan Wood",
   "license": "ISC",
@@ -14,14 +16,20 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "react-scripts": "^1.0.11",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },
   "dependencies": {
+    "axios": "^0.16.2",
+    "babel-preset-stage-2": "^6.24.1",
+    "lodash": "^4.17.4",
+    "material-ui": "^0.19.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.1.2",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.2",
     "redux-form": "^7.0.3",
     "redux-thunk": "^2.2.0"
