@@ -1,3 +1,88 @@
 .error {
   color: red;
 }
+
+.sun {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  -webkit-transform: translate(35px, -115px);
+          transform: translate(35px, -115px);
+}
+.sun span {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+}
+.sun span:before, .sun span:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  height: inherit;
+  width: inherit;
+  background: inherit;
+}
+.sun span:before {
+  content: "";
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.sun span:after {
+  content: "";
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.sun span:nth-child(even) {
+  -webkit-animation: rotate 10s infinite linear;
+          animation: rotate 10s infinite linear;
+}
+.sun span:nth-child(odd) {
+  -webkit-animation: rotate-reverse 10s infinite linear;
+          animation: rotate-reverse 10s infinite linear;
+  -webkit-transform: rotate(60deg);
+          transform: rotate(60deg);
+}
+.sun span:nth-child(1) {
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  background: rgba(255, 95, 28, 0.6);
+  ;
+  width: 90px;
+  height: 90px;
+  top: 20px;
+  left: 20px;
+}
+.sun span:nth-child(2) {
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  background: rgba(255, 102, 6, 0.5);
+  width: 100px;
+  height: 100px;
+  top: 15px;
+  left: 15px;
+}
+.sun span:nth-child(3) {
+  -webkit-animation-duration: 15s;
+          animation-duration: 15s;
+  background: rgba(255, 130, 5, 0.5);
+  width: 110px;
+  height: 110px;
+  top: 10px;
+  left: 10px;
+}
+.sun span:nth-child(4) {
+  -webkit-animation-duration: 25s;
+          animation-duration: 25s;
+  background: rgba(255, 90, 0, 0.5);
+  width: 120px;
+  height: 120px;
+  top: 5px;
+  left: 5px;
+}
+.sun span:nth-child(5) {
+  -webkit-animation-duration: 35s;
+          animation-duration: 35s;
+  background: rgba(255, 250, 0, 0.5);
+  width: 130px;
+  height: 130px;
+}

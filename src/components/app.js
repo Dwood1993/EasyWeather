@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import Sun from './animations';
 
 export default class App extends Component {
   render() {
     return (
-      <div>Fresh Start!</div>
+      <div>
+        <Sun className="sun" />
+        Fresh Start!
+      </div>
     );
   }
 }
