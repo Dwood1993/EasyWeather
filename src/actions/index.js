@@ -1,5 +1,9 @@
 import axios from 'axios'
-import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, FETCH_MESSAGE } from './types'
+import { UNAUTH_USER, AUTH_USER, AUTH_ERROR, FETCH_MESSAGE, FETCH_CITIES, FETCH_CURRENT_CITY } from './types'
+import config from '../.././config'
+
+const API_KEY = config.weatherKey
+const WEATHER_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}`
 const ROOT_URL = 'http://localhost:3090'
 
 export function signinUser({email, password}) {
@@ -64,5 +68,24 @@ export function fetchMessage() {
           payload: response.data.message
         })
       })
+  }
+}
+
+export function fetchCurrentWeather(arg) {
+  const requestGeoIp = axios.get('http://freegeoip.net/json/');
+  return (dispatch) => {
+    requestGeoIp.then((response) => {
+      const coords = response;
+      const lat = coords.data.latitude;
+      const lon = coords.data.longitude;
+      const url = `${WEATHER_URL}&lat=${lat}&lon=${lon}`;
+      const requestWeather = axios.get(url);
+      requestWeather.then((weatherResponse) => {
+        dispatch({
+          type: FETCH_CURRENT_CITY,
+          payload: weatherResponse
+        })
+      })
+    });
   }
 }

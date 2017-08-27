@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import ReduxThunk from 'redux-thunk';
@@ -15,16 +15,21 @@ import Feature from './components/feature';
 import{ AUTH_USER } from './actions/types';
 import App from './components/app';
 import Header from './components/header';
-import reducers from './reducers';
+import reducers from './reducers/index';
 
 
 // 'react-tap-event-plugin' needed for onTouchTap with material-ui
 // 'InjectTapEventPlugin' needed for onTouchTap with material-ui http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin()
 
-const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
-const store  = createStoreWithMiddleware(reducers);
-const token = localStorage.getItem('token')
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducers, composeEnhancers(
+  applyMiddleware(ReduxThunk)
+));
+
+// const createStoreWithMiddleware = applyMiddleware(ReduxThunk)(createStore);
+// const store  = createStoreWithMiddleware(reducers);
+ const token = localStorage.getItem('token')
 
 if (token) {
   store.dispatch({type: AUTH_USER})

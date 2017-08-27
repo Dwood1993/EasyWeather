@@ -1,0 +1,44 @@
+@keyframes background_colors {
+  0% {
+    background-color:#8121ef
+  }
+  20% {
+    background-color:#a420fc
+  }
+  40% {
+    background-color:#9209e8
+  }
+  60% {
+    background-color:#8906db
+  }
+  80% {
+    background-color:#7b03c6
+  }
+  100% {
+    background-color:#8121ef
+  }
+}
+
+#root {
+  position: absolute;
+  animation: background_colors 10s forwards ease-in normal infinite;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  background-color: black;
+}
+.links, .homeLink {
+  color: #2196f3 !important;
+}
+
+.linkers {
+  /*align-self: flex-end;*/
+}
+
+.homeLink {
+  /*display: flex;
+  align-self: flex-start;*/
+}
